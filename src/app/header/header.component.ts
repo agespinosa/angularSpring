@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  titulo: string= 'App Angular Spring';
+  titulo: string = 'App Angular Spring';
 }
