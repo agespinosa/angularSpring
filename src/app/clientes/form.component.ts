@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -21,8 +22,9 @@ export class FormComponent implements OnInit {
   public create(): void{
    
     this.clienteService.create(this.cliente).subscribe(
-      response => {
+      cliente => {
         this.router.navigate(['/clientes']);
+        swal("Nuevo Cliente:", `cliente ${cliente.nombre} se ha creado con éxito`, 'success' );
       }
     );
   }
