@@ -9,7 +9,7 @@
           <button class="btn btn-primary btn-rounded my-3 text-left" [routerLink]="[ '/clientes/form']">Nuevo Cliente</button>
         </div>
       </div>
-      <table class="table">
+      <table class="table" *ngIf="clientes?.length>0" >
           <thead class="table table-borderless table-dark">
             <tr>
               <th scope="col">#</th>
@@ -34,5 +34,8 @@
             </tr>
           </tbody>
         </table>
+        <div *ngIf="clientes?.length==0" class="alert alert-info">
+          No existen clientes en la base de datos!.
+        </div>
     </div>
   </div>
