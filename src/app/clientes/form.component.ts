@@ -43,4 +43,13 @@ export class FormComponent implements OnInit {
       }
     );
   }
+
+  public update():void{
+    this.clienteService.updateCliente(this.cliente).subscribe(
+      cliente=>{
+        this.router.navigate(['/clientes']);
+        swal("Actualizar Cliente:", `el cliente ${cliente.nombre} se ha actualizado con éxito`, 'success' );
+      }
+    );
+  }
 }

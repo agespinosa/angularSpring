@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from './cliente';
-import { CLIENTES } from './clientes.json';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -22,5 +21,13 @@ export class ClienteService {
 
   getCliente(id:string): Observable<Cliente>{
     return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`);
+  }
+
+  updateCliente(cliente:Cliente): Observable<Cliente>{
+    return this.http.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente, {headers: this.httpHeader});
+  }
+
+  deleteCliente(id: number): Observable<Cliente>{
+    return this.http.delete<Cliente>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeader});
   }
 }

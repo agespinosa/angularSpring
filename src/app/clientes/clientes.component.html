@@ -27,7 +27,10 @@
               <td>{{cliente.apellido}}</td>
               <td>{{cliente.createdAt}}</td>
               <td>{{cliente.email}}</td>
-              <td><button class="btn btn-info" [routerLink]="[ '/clientes/form', cliente.id ]">Editar</button></td>
+              <td>
+                <button class="btn btn-info" [routerLink]="[ '/clientes/form', cliente.id ]">Editar</button>
+                <button class="btn btn-danger" (click)="delete(cliente)">Eliminar</button>
+              </td>
             </tr>
           </tbody>
         </table>
