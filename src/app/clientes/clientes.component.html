@@ -17,6 +17,7 @@
               <th scope="col">Apellido</th>
               <th scope="col">Creado</th>
               <th scope="col">Email</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +27,7 @@
               <td>{{cliente.apellido}}</td>
               <td>{{cliente.createdAt}}</td>
               <td>{{cliente.email}}</td>
+              <td><button class="btn btn-info" [routerLink]="[ '/clientes/form', cliente.id ]">Editar</button></td>
             </tr>
           </tbody>
         </table>
