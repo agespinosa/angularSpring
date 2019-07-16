@@ -24,18 +24,19 @@ export class ClientesComponent implements OnInit {
   }
 
   delete(cliente: Cliente):void{
-    this.clienteService.deleteCliente(cliente.id).subscribe(
-      response=>{
-        swal({
-          title: 'Estas seguro?',
-          text: "No podras revertir esto!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Si, eliminarlo!'
-        }).then((result) => {
-          if (result.value) {
+
+    swal({
+      title: 'Estas seguro?',
+      text: "No podras revertir esto!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminarlo!'
+    }).then((result) => {
+      if (result.value) {
+        this.clienteService.deleteCliente(cliente.id).subscribe(
+          response=>{
             this.clientes = this.clientes.filter(cli => cli!==cliente);
             swal(
               'Eliminado!',
@@ -43,9 +44,12 @@ export class ClientesComponent implements OnInit {
               'success'
             )
           }
-        })
+        );
+        
       }
-    );
+    })
+
+    
   }
 
 }
